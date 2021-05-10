@@ -1,7 +1,6 @@
 # Slack Simulation
 Welcome to Slack Simulation, a replica of the messaging application for organizations. 
 While logged in as an authenticated user, you can see, create, edit and delete data that as a part of a messaging channel or organization (specific to you).
-While logged in as an admin, you can see, create, edit and delete data that as a part of a messaging channel or organization (yours and everyone else's RUD).
 
 ## Deployed Sites
 
@@ -27,27 +26,6 @@ While logged in as an admin, you can see, create, edit and delete data that as a
 * **Stretch goal:** Emojis, Gif Selector, Change Theme
 
 ### User Stories
-
-### ADMIN 
-
-#### Authentication
-* As a user, when I am authenticated I should be able to see the dashboard.
-* As a user, when I am authenticated I should be able to send (C of CRUD) on messages and message channels.
-* As a user, when I am authenticated I should be able to perform read, update, and delete (RUD of CRUD) on messages and message channels from everyone.
-* As a user, I should be able to login via google.
-* As a user, I should be able to logout.
-
-#### Messages
-* As a user, I should be able to send (C of CRUD) messages (must include timestamp).
-* As a user, I should be able to see (R of CRUD) all messages.
-* As a user, I should be able to edit (U of CRUD) all messages.
-* As a user, I should be able to delete (D of CRUD) all messages.
-
-#### Message Channels
-* As a user, I should be able to send (C of CRUD) message channels.
-* As a user, I should be able to see (R of CRUD) all message channels.
-* As a user, I should be able to edit (U of CRUD) all message channels.
-* As a user, I should be able to delete (D of CRUD) all message channels.
 
 ### Authenticated User
 
