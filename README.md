@@ -1,7 +1,7 @@
 # Slack Simulation
 Welcome to Slack Simulation, a replica of the messaging application for organizations. 
-While logged in as an authenticated user, you can see, create, edit and delete data that as a part of a messaging channel or organization (specific to you delete).
-While logged in as an admin, you can see, create, edit and delete data that as a part of a messaging channel or organization (yours and everyone else's delete).
+While logged in as an authenticated user, you can see, create, edit and delete data that as a part of a messaging channel or organization (specific to you).
+While logged in as an admin, you can see, create, edit and delete data that as a part of a messaging channel or organization (yours and everyone else's RUD).
 
 ## Deployed Sites
 
