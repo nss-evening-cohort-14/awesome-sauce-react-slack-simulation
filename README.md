@@ -10,9 +10,9 @@ While logged in as an admin, you can see, create, edit and delete data that as a
 
 
 ## Wireframes/Diagram
-### Week 1 [Workflow Diagram]
-### Week 1 [Wireframe]
-### Week 2-3 [Excursion Wireframes]
+### [Workflow Diagram]
+### [Wireframe]
+
 
 ## Description
 
