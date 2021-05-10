@@ -33,7 +33,7 @@ While logged in as an admin, you can see, create, edit and delete data that as a
 #### Authentication
 * As a user, when I am authenticated I should be able to see the dashboard.
 * As a user, when I am authenticated I should be able to send (C of CRUD) on messages and message channels.
-* * As a user, when I am authenticated I should be able to perform read, update, and delete (RUD of CRUD) on messages and message channels from everyone.
+* As a user, when I am authenticated I should be able to perform read, update, and delete (RUD of CRUD) on messages and message channels from everyone.
 * As a user, I should be able to login via google.
 * As a user, I should be able to logout.
 
