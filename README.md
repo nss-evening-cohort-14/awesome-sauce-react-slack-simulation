@@ -32,7 +32,7 @@ While logged in as an authenticated user, you can see, create, edit and delete d
 #### Authentication
 * As a user, when I am authenticated I should be able to see the dashboard.
 * As a user, when I am authenticated I should be able to perform all actions on the dashboard (full CRU) on messages and message channels.
-* * As a user, when I am authenticated I should be able to perform delete on messages and message channels I have personally created.
+* As a user, when I am authenticated I should be able to perform delete on messages and message channels I have personally created.
 * As a user, I should be able to login via google.
 * As a user, I should be able to logout.
 
