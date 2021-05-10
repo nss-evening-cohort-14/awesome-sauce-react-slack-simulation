@@ -31,22 +31,27 @@ While logged in as an authenticated user, you can see, create, edit and delete d
 
 #### Authentication
 * As a user, when I am authenticated I should be able to see the dashboard.
-* As a user, when I am authenticated I should be able to perform all actions on the dashboard (full CRU) on messages and message channels.
-* As a user, when I am authenticated I should be able to perform delete on messages and message channels I have personally created.
+* As a user, when I am authenticated I should be able to perform all actions on the dashboard (full CRUD) on all messages, message channels, and organization channels.
 * As a user, I should be able to login via google.
 * As a user, I should be able to logout.
 
 #### Messages
-* As a user, I should be able to send (C of CRUD) messages.
+* As a user, I should be able to send (C of CRUD) messages that include me.
 * As a user, I should be able to see (R of CRUD) messages that include me.
 * As a user, I should be able to edit (U of CRUD) messages I sent.
 * As a user, I should be able to delete (D of CRUD) messages I sent.
 
 #### Message Channels
-* As a user, I should be able to add (C of CRUD) message channels.
+* As a user, I should be able to add (C of CRUD) message channels that include me.
 * As a user, I should be able to see (R of CRUD) message channels that include me.
 * As a user, I should be able to edit (U of CRUD) message channels I created.
 * As a user, I should be able to delete (D of CRUD) message channels I created.
+
+#### Organization Channels
+* As a user, I should be able to add (C of CRUD) on all organization channels that include me.
+* As a user, I should be able to see (R of CRUD) on all organization channels that include me.
+* As a user, I should be able to edit (U of CRUD) on all organization channels that I created.
+* As a user, I should be able to delete (D of CRUD) on all organization channels that I created.
 
 
 ### Stretch Goals
@@ -67,6 +72,34 @@ While logged in as an authenticated user, you can see, create, edit and delete d
 
 #### Emojis
 * As an authenticated user, I should be able to user emojis in my messages.
+
+### ADMIN
+
+#### Authentication
+* As a user, when I am authenticated I should be able to see the message board.
+* As a user, when I am authenticated I should be able to perform all actions on the dashboard (full CRU) on messages and message channels.
+* As a user, when I am authenticated I should be able to perform delete on messages and message channels I have personally created.
+* As a user, I should be able to login via google.
+* As a user, I should be able to logout.
+
+#### Messages
+* As a user, I should be able to send (C of CRUD) messages.
+* As a user, I should be able to see (R of CRUD) messages that include me.
+* As a user, I should be able to edit (U of CRUD) messages I sent.
+* As a user, I should be able to delete (D of CRUD) messages I sent.
+
+#### Message Channels
+* As a user, I should be able to add (C of CRUD) message channels.
+* As a user, I should be able to see (R of CRUD) message channels that include me.
+* As a user, I should be able to edit (U of CRUD) message channels I created.
+* As a user, I should be able to delete (D of CRUD) message channels I created.
+
+
+#### Organization Channels
+* As a user, I should be able to add (C of CRUD) on all organization channels.
+* As a user, I should be able to see (R of CRUD) on all organization channels.
+* As a user, I should be able to edit (U of CRUD) on all organization channels.
+* As a user, I should be able to delete (D of CRUD) on all organization channels.
 
 
 ## Project Boards
