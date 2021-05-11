@@ -6,14 +6,16 @@ While logged in as an authenticated user, you can see, create, edit and delete d
 
 
 ## ERDs
-<img width="901" alt="Screen Shot 2021-05-10 at 9 51 45 PM" src="https://user-images.githubusercontent.com/76716670/117746245-18ae6000-b1da-11eb-8539-5932fe775220.png">
+
+<img width="1440" alt="Screen Shot 2021-05-10 at 9 53 37 PM 1" src="https://user-images.githubusercontent.com/76716670/117746368-5612ed80-b1da-11eb-9246-d97480c5bdfe.png">
 
 ## Wireframes/Diagram
 ### [Workflow Diagram]
 ### [Wireframe]
 
 https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
-<img width="1440" alt="Screen Shot 2021-05-10 at 9 53 37 PM 1" src="https://user-images.githubusercontent.com/76716670/117746368-5612ed80-b1da-11eb-9246-d97480c5bdfe.png">
+
+<img width="901" alt="Screen Shot 2021-05-10 at 9 51 45 PM" src="https://user-images.githubusercontent.com/76716670/117746245-18ae6000-b1da-11eb-8539-5932fe775220.png">
 
 
 
