@@ -1,18 +1,37 @@
-import React, { useState } from 'react';
-import firebase from 'firebase';
-import firebaseConfig from '../helpers/apiKeys';
+import React, { useEffect, useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
+import NavBar from '../components/NavBar';
+import Routes from '../helpers/Routes';
 
 function App() {
-  firebase.initializeApp(firebaseConfig);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((authed) => {
+      if (authed) {
+        const userInfoObj = {
+          fullName: authed.displayName,
+          profileImage: authed.photoURL,
+          uid: authed.uid,
+          user: authed.email.split('@')[0]
+        };
+        setUser(userInfoObj);
+      } else if (user || user === null) {
+        setUser(false);
+      }
+    });
+  }, []);
 
   return (
-    <>
-      <div className='App'>
-        <h2>Slack Sim</h2>
-
-      </div>
-    </>
+    <div className='App'>
+      <Router>
+        <NavBar user={user} />
+        <Routes />
+      </Router>
+    </div>
   );
 }
 
