@@ -9,6 +9,8 @@ import { deleteOrganization } from '../helpers/data/organizationData';
 import OrganizationForm from './OrganizationsForm';
 
 const OrganizationCard = ({
+  uid,
+  user,
   firebaseKey,
   icon,
   organizationName,
@@ -19,7 +21,7 @@ const OrganizationCard = ({
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deleteOrganization(firebaseKey)
+        deleteOrganization(firebaseKey, user)
           .then(setOrganizations);
         break;
       case 'edit':
@@ -35,17 +37,19 @@ const OrganizationCard = ({
       <CardBody>
         <img src={icon} />
         <CardTitle tag="h5">{organizationName}</CardTitle>
-        <Button color="danger" onClick={() => handleClick('delete')}>Delete</Button>
+        <Button color="danger" onClick={() => handleClick('delete')}>Delete Organization</Button>
         <Button color="info" onClick={() => handleClick('edit')}>
           {editing ? 'CloseForm' : 'Edit Organization'}
         </Button>
-        {
-          editing && <OrganizationForm
+        {editing
+          && <OrganizationForm
             fromTitle='Edit Organization'
-            setOrganizations={setOrganizations}
+            uid={uid}
+            user={user}
             firebaseKey={firebaseKey}
             icon={icon}
             organizationName={organizationName}
+            setOrganizations={setOrganizations}
           />
         }
       </CardBody>
@@ -54,6 +58,8 @@ const OrganizationCard = ({
 };
 
 OrganizationCard.propTypes = {
+  uid: PropTypes.string.isRequired,
+  user: PropTypes.any,
   firebaseKey: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   organizationName: PropTypes.string.isRequired,

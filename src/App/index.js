@@ -25,6 +25,7 @@ function App() {
           user: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
+        getOrganizations(userInfoObj).then((response) => setOrganizations(response));
       } else if (user || user === null) {
         setUser(false);
       }
