@@ -8,8 +8,8 @@ import Routes from '../helpers/Routes';
 import './App.scss';
 
 function App() {
-  const [user, setUser] = useState(null);
   const [organizations, setOrganizations] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     getOrganizations().then(setOrganizations);

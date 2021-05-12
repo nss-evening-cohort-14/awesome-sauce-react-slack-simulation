@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Button, Form, FormGroup, Input, Label
 } from 'reactstrap';
@@ -14,9 +15,9 @@ const OrganizationForm = ({
   uid
 }) => {
   const [organization, setOrganization] = useState({
-    firebaseKey: firebaseKey || null,
     icon: icon || '',
     organizationName: organizationName || '',
+    firebaseKey: firebaseKey || null,
     uid
   });
 
@@ -24,9 +25,11 @@ const OrganizationForm = ({
     setOrganization((prevState) => ({
       ...prevState,
       [e.target.name]:
-        e.target.name === 'position' ? (e.target.value) : e.target.value,
+        e.target.name === 'organizationName' ? (e.target.value) : e.target.value,
     }));
   };
+
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +38,7 @@ const OrganizationForm = ({
     } else {
       addOrganization(organization).then((response) => {
         setOrganizations(response);
+        history.push('/organizations');
       });
 
       setOrganization({
