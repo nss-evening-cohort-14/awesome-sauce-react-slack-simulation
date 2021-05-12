@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Button, Form, FormGroup, Input, Label
@@ -12,39 +12,41 @@ const OrganizationForm = ({
   firebaseKey,
   icon,
   organizationName,
+  user,
   uid
 }) => {
   const [organization, setOrganization] = useState({
     icon: icon || '',
     organizationName: organizationName || '',
     firebaseKey: firebaseKey || null,
-    uid
+    uid: uid || user.uid
   });
 
   const handleInputChange = (e) => {
     setOrganization((prevState) => ({
       ...prevState,
-      [e.target.name]:
-        e.target.name === 'organizationName' ? (e.target.value) : e.target.value,
+      [e.target.name]: e.target.value,
+      // e.target.name === 'organizationName' ? (e.target.value) : e.target.value,
     }));
   };
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (organization.firebaseKey) {
-      updateOrganization(organization).then((orgArray) => setOrganization(orgArray));
+      updateOrganization(organization, user).then((orgArray) => setOrganizations(orgArray));
     } else {
-      addOrganization(organization).then((response) => {
+      addOrganization(organization, user).then((response) => {
         setOrganizations(response);
-        history.push('/organizations');
+        // history.push('/organizations');
       });
 
+      // Clears Input Fields
       setOrganization({
-        firebaseKey: null,
         icon: '',
-        organizationName: ''
+        organizationName: '',
+        firebaseKey: null
       });
     }
   };
@@ -61,7 +63,7 @@ const OrganizationForm = ({
           <FormGroup>
             <Label for="organizationName">Name: </Label>
             <Input
-              organizationName='organizationName'
+              name='organizationName'
               id='organizationName'
               value={organization.organizationName}
               type='text'
@@ -94,7 +96,8 @@ OrganizationForm.propTypes = {
   firebaseKey: PropTypes.string,
   icon: PropTypes.string,
   organizationName: PropTypes.string,
-  uid: PropTypes.string
+  uid: PropTypes.string,
+  user: PropTypes.any
 };
 
 export default OrganizationForm;
