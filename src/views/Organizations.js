@@ -4,7 +4,10 @@ import { Button } from 'reactstrap';
 import OrganizationCard from '../components/OrganizationCard';
 import OrganizationForm from '../components/OrganizationsForm';
 
-function Organizations({ user, organizations, setOrganizations }) {
+function Organizations({
+  uid, user, organizations,
+  setOrganizations
+}) {
   const [showAddOrganization, setAddOrganization] = useState(false);
 
   const handleClick = () => {
@@ -33,6 +36,7 @@ function Organizations({ user, organizations, setOrganizations }) {
             icon={orgInfo.icon}
             organizationName={orgInfo.organizationName}
             setOrganizations={setOrganizations}
+            uid={uid}
             user={user}
           />
         ))};
@@ -44,7 +48,8 @@ function Organizations({ user, organizations, setOrganizations }) {
 Organizations.propTypes = {
   organizations: PropTypes.array.isRequired,
   setOrganizations: PropTypes.func.isRequired,
-  user: PropTypes.any
+  user: PropTypes.any,
+  uid: PropTypes.any
 };
 
 export default Organizations;

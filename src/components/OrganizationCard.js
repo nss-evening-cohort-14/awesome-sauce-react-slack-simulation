@@ -58,7 +58,7 @@ const OrganizationCard = ({
 };
 
 OrganizationCard.propTypes = {
-  uid: PropTypes.string.isRequired,
+  uid: PropTypes.string,
   user: PropTypes.any,
   firebaseKey: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
