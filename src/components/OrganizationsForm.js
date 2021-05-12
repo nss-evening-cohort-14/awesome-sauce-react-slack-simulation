@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import {
-  Button, Form, FormGroup, Label, Input
+  Button, Form, FormGroup, Input, Label
 } from 'reactstrap';
 import { addOrganization, updateOrganization } from '../helpers/data/organizationData';
 
@@ -37,7 +37,7 @@ const OrganizationForm = ({
         setOrganizations(response);
       });
 
-      setOrganizations({
+      setOrganization({
         firebaseKey: null,
         icon: '',
         organizationName: ''
