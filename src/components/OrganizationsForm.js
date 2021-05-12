@@ -3,19 +3,21 @@ import PropTypes from 'prop-types';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
-import addOrganization from '../helpers/data/organizationData';
+import { addOrganization, updateOrganization } from '../helpers/data/organizationData';
 
 const OrganizationForm = ({
   formTitle,
   setOrganizations,
   firebaseKey,
   icon,
-  organizationName
+  organizationName,
+  uid
 }) => {
   const [organization, setOrganization] = useState({
     firebaseKey: firebaseKey || null,
     icon: icon || '',
     organizationName: organizationName || '',
+    uid
   });
 
   const handleInputChange = (e) => {
@@ -29,9 +31,9 @@ const OrganizationForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (organization.firebaseKey) {
-      updateOrganization(org).then((orgArray) => setOrganization(orgArray));
+      updateOrganization(organization).then((orgArray) => setOrganization(orgArray));
     } else {
-      addOrganization(org).then((response) => {
+      addOrganization(organization).then((response) => {
         setOrganizations(response);
       });
 
@@ -87,7 +89,8 @@ OrganizationForm.propTypes = {
   setOrganizations: PropTypes.func,
   firebaseKey: PropTypes.string,
   icon: PropTypes.string,
-  organizationName: PropTypes.string
+  organizationName: PropTypes.string,
+  uid: PropTypes.string
 };
 
 export default OrganizationForm;
