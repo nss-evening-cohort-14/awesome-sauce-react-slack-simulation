@@ -5,8 +5,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
+import getMessages from '../helpers/data/messageData';
 
 function App() {
+  const [messages, setMessages] = useState({});
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -25,11 +27,15 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    getMessages().then((response) => setMessages(response));
+  }, []);
+
   return (
     <div className='App'>
       <Router>
         <NavBar user={user} />
-        <Routes />
+        <Routes messages={messages} />
       </Router>
     </div>
   );
