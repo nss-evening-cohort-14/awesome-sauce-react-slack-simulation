@@ -20,6 +20,12 @@ const addOrganization = (obj) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+const deleteOrganization = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/organizations/${firebaseKey}.json`)
+    .then(() => getOrganizations().then((orgArray) => resolve(orgArray)))
+    .catch((error) => reject(error));
+});
+
 const updateOrganization = (obj) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/organizations/${obj.firebaseKey}.json`, obj)
     .then(() => getOrganizations().then(resolve))
@@ -28,5 +34,5 @@ const updateOrganization = (obj) => new Promise((resolve, reject) => {
 
 export {
   getOrganizations, addOrganization,
-  updateOrganization
+  deleteOrganization, updateOrganization
 };
