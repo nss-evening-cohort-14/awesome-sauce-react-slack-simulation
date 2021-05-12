@@ -120,7 +120,7 @@ https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
 
 ## Contributors
 [Honey-Rae Swan](https://github.com/thedigitalmenagerie)
-[Martin Sisk] (https://github.com/fimoefive)
-[Casey Walker] (https://github.com/caseywalker)
+https://github.com/fimoefive
+https://github.com/caseywalker
 
 
