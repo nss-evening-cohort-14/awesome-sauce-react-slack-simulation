@@ -4,16 +4,14 @@ import 'firebase/auth';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { getOrganizations } from '../helpers/data/organizationData';
+import { getChannels } from '../helpers/data/ChannelData';
 import Routes from '../helpers/Routes';
 import './App.scss';
 
 function App() {
+  const [channels, setChannels] = useState([]);
   const [organizations, setOrganizations] = useState([]);
   const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    getOrganizations().then(setOrganizations);
-  }, []);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -25,7 +23,8 @@ function App() {
           user: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
-        getOrganizations(userInfoObj).then((response) => setOrganizations(response));
+        getOrganizations().then((response) => setOrganizations(response));
+        getChannels(userInfoObj).then((response) => setChannels(response));
       } else if (user || user === null) {
         setUser(false);
       }
@@ -36,6 +35,7 @@ function App() {
     <div className='App'>
       <Router>
         <NavBar user={user} />
+        <Routes user={user} channels={channels} setChannels={setChannels} />
         <Routes
           user={user}
           organizations={organizations}
