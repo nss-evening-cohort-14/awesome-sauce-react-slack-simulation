@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { Button } from 'reactstrap';
 import OrganizationCard from '../components/OrganizationCard';
 import OrganizationForm from '../components/OrganizationsForm';
 
 function Organizations({
-  uid, user, organizations,
+  user, organizations,
   setOrganizations
 }) {
   const [showAddOrganization, setAddOrganization] = useState(false);
@@ -29,14 +29,14 @@ function Organizations({
             </div>
           }
         </div>
-        {organizations.map((orgInfo) => (
+        {organizations.length && organizations.map((orgInfo) => (
           <OrganizationCard
             key={orgInfo.firebaseKey}
             firebaseKey={orgInfo.firebaseKey}
             icon={orgInfo.icon}
             organizationName={orgInfo.organizationName}
             setOrganizations={setOrganizations}
-            uid={uid}
+            uid={orgInfo.uid}
             user={user}
           />
         ))};
@@ -48,8 +48,7 @@ function Organizations({
 Organizations.propTypes = {
   organizations: PropTypes.array.isRequired,
   setOrganizations: PropTypes.func.isRequired,
-  user: PropTypes.any,
-  uid: PropTypes.any
+  user: PropTypes.any
 };
 
 export default Organizations;

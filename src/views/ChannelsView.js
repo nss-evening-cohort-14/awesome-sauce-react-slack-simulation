@@ -17,8 +17,8 @@ function ChannelsView({ user, setChannels, channels }) {
         {!showAddChannel
           ? <Button onClick={handleClick}>Add Channel</Button>
           : <div>
-              <Button onClick={handleClick}>Close</Button>
-              <ChannelForm setChannels={setChannels} user={user} />
+            <Button onClick={handleClick}>Close</Button>
+            <ChannelForm setChannels={setChannels} user={user} />
           </div>
         }
       </div>
@@ -26,8 +26,8 @@ function ChannelsView({ user, setChannels, channels }) {
         <ChannelCard
           key={channelInfo.firebaseKey}
           firebaseKey={channelInfo.firebaseKey}
-          channelName={channelInfo.firebaseKey}
-          uid={channelInfo.firebaseKey}
+          channelName={channelInfo.channelName}
+          uid={channelInfo.uid}
           setChannels={setChannels}
           user={user}
         />

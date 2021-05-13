@@ -91,7 +91,7 @@ const OrganizationForm = ({
 };
 
 OrganizationForm.propTypes = {
-  formTitle: PropTypes.string.isRequired,
+  formTitle: PropTypes.string,
   setOrganizations: PropTypes.func,
   firebaseKey: PropTypes.string,
   icon: PropTypes.string,

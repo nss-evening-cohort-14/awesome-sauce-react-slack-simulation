@@ -35,9 +35,7 @@ function App() {
     <div className='App'>
       <Router>
         <NavBar user={user} />
-        <Routes user={user} channels={channels} setChannels={setChannels} />
-        <Routes
-          user={user}
+        <Routes user={user} channels={channels} setChannels={setChannels}
           organizations={organizations}
           setOrganizations={setOrganizations}
         />
