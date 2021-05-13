@@ -43,7 +43,7 @@ const NavBar = ({ user }) => {
               }
             </NavItem>
           }
-        </Nav>
+          </Nav>
         </Collapse>
       </Navbar>
     </div>
