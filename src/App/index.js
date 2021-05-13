@@ -5,10 +5,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
-import getMessages from '../helpers/data/messageData';
+import { getMessages } from '../helpers/data/messageData';
 
 function App() {
-  const [messages, setMessages] = useState({});
+  const [messages, setMessages] = useState([]);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -21,21 +21,18 @@ function App() {
           user: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
+        getMessages().then((response) => setMessages(response));
       } else if (user || user === null) {
         setUser(false);
       }
     });
   }, []);
 
-  useEffect(() => {
-    getMessages().then((response) => setMessages(response));
-  }, []);
-
   return (
     <div className='App'>
       <Router>
         <NavBar user={user} />
-        <Routes messages={messages} />
+        <Routes messages={messages} setMessages={setMessages} />
       </Router>
     </div>
   );
