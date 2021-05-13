@@ -9,26 +9,26 @@ const getOrganizations = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const addOrganization = (obj) => new Promise((resolve, reject) => {
-  axios.post(`${dbUrl}/organizations.json`, obj)
+const addOrganization = (organization, user) => new Promise((resolve, reject) => {
+  axios.post(`${dbUrl}/organizations.json`, organization)
     .then((response) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/organizations/${response.data.name}.json`, body)
         .then(() => {
-          getOrganizations().then((orsArray) => resolve(orsArray));
+          getOrganizations(user).then((orgArray) => resolve(orgArray));
         });
     }).catch((error) => reject(error));
 });
 
-const deleteOrganization = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteOrganization = (firebaseKey, user) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/organizations/${firebaseKey}.json`)
-    .then(() => getOrganizations().then((orgArray) => resolve(orgArray)))
+    .then(() => getOrganizations(user).then((orgArray) => resolve(orgArray)))
     .catch((error) => reject(error));
 });
 
-const updateOrganization = (obj) => new Promise((resolve, reject) => {
-  axios.patch(`${dbUrl}/organizations/${obj.firebaseKey}.json`, obj)
-    .then(() => getOrganizations().then(resolve))
+const updateOrganization = (organizations, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/organizations/${organizations.firebaseKey}.json`, organizations)
+    .then(() => getOrganizations(user).then(resolve))
     .catch((error) => reject(error));
 });
 

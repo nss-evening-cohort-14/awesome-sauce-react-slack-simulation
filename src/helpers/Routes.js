@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import Channels from '../views/ChannelsView';
-import AddOrganization from '../views/AddOrganization';
-import Home from '../views/Home';
 import Organizations from '../views/Organizations';
-
+import Home from '../views/Home';
 
 function Routes({
   user,
@@ -22,16 +20,12 @@ function Routes({
           <Route
             exact
             path='/organizations'
-            component={() => <Organizations organizations={organizations}
+            component={() => <Organizations
+              user={user}
+              organizations={organizations}
               setOrganizations={setOrganizations} />}
           />
           <Route exact path='/channels' component={() => <Channels user={user} channels={channels} setChannels={setChannels} />} />
-          <Route
-            user={user}
-            path='/add-organization'
-            component={() => <AddOrganization
-              setOrganizations={setOrganizations} />}
-          />
           <Route path='*' component={Home} />
         </Switch>
       </div>
