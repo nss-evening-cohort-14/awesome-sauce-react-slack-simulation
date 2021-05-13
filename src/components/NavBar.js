@@ -31,7 +31,7 @@ const NavBar = ({ user }) => {
             <Link className="nav-link" to="/channels">Channels</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link" to="/Messages">Messages</Link>
+            <Link className="nav-link" to="/messages">Messages</Link>
           </NavItem>
           {
             user !== null

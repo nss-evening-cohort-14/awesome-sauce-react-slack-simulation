@@ -29,12 +29,11 @@ function Routes({
               setOrganizations={setOrganizations} />}
           />
           <Route exact path='/channels' component={() => <Channels user={user} channels={channels} setChannels={setChannels} />} />
-          <Route path='*' component={Home} />
-          <Route exact path='/' component={() => <Home />} />
           <Route exact path='/messages' component={() => <MessageList
           messages={messages}
           setMessages={setMessages}
           />} />
+          <Route path='*' component={Home} />
         </Switch>
       </div>
     </>
