@@ -23,24 +23,26 @@ const NavBar = ({ user }) => {
         <NavbarBrand href="/">Slack Sauce</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Link className="nav-link" to="/organizations">Organizations</Link>
+        <Nav className="mr-auto" navbar>
+          <NavItem>
+            <Link className="nav-link" to="/organizations">Organizations</Link>
+          </NavItem>
+          <NavItem>
+            <Link className="nav-link" to="/channels">Channels</Link>
+          </NavItem>
+          <NavItem>
+            <Link className="nav-link" to="/messages">Messages</Link>
+          </NavItem>
+          {
+            user !== null
+            && <NavItem>
+              {
+                user
+                  ? <Button color='danger' onClick={signOutUser}> Sign Out </Button>
+                  : <Button color='info' onClick={signInUser}> Sign In </Button>
+              }
             </NavItem>
-
-            <NavItem>
-              <Link className="nav-link" to="/channels">Channels</Link>
-            </NavItem>
-            {
-              user !== null
-              && <NavItem>
-                {
-                  user
-                    ? <Button color='danger' onClick={signOutUser}> Sign Out </Button>
-                    : <Button color='info' onClick={signInUser}> Sign In </Button>
-                }
-              </NavItem>
-            }
+          }
           </Nav>
         </Collapse>
       </Navbar>

@@ -1,0 +1,10 @@
+.message-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+  margin: 10px 5px;
+}

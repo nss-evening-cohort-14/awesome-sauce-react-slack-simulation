@@ -4,13 +4,16 @@ import { Route, Switch } from 'react-router-dom';
 import Channels from '../views/ChannelsView';
 import Organizations from '../views/Organizations';
 import Home from '../views/Home';
+import MessageList from '../views/MessageList';
 
 function Routes({
   user,
   organizations,
   setOrganizations,
   channels,
-  setChannels
+  setChannels,
+  messages,
+  setMessages
 }) {
   return (
     <>
@@ -26,6 +29,10 @@ function Routes({
               setOrganizations={setOrganizations} />}
           />
           <Route exact path='/channels' component={() => <Channels user={user} channels={channels} setChannels={setChannels} />} />
+          <Route exact path='/messages' component={() => <MessageList
+          messages={messages}
+          setMessages={setMessages}
+          />} />
           <Route path='*' component={Home} />
         </Switch>
       </div>
@@ -38,7 +45,9 @@ Routes.propTypes = {
   setChannels: PropTypes.func.isRequired,
   organizations: PropTypes.array.isRequired,
   setOrganizations: PropTypes.func.isRequired,
-  user: PropTypes.any
+  user: PropTypes.any,
+  messages: PropTypes.array.isRequired,
+  setMessages: PropTypes.func.isRequired
 };
 
 export default Routes;
