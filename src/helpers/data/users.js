@@ -9,4 +9,15 @@ const getUser = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default getUser;
+const addUser = (userObject) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/users.json`, userObject)
+    .then((response) => {
+      const body = { firebaseKey: response.data.name };
+      axios.patch(`${dbURL}/users/${response.data.name}.json`, body)
+        .then(() => {
+          getUser(response.data.name).then((userObj) => resolve(userObj));
+        });
+    }).catch((error) => reject(error));
+});
+
+export { getUser, addUser };

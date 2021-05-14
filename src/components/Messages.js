@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import { deleteMessage } from '../helpers/data/messageData';
 import MessageForm from './MessageForm';
-import getUser from '../helpers/data/users';
+import { getUser } from '../helpers/data/users';
 
 function Messages({
   text,
@@ -48,6 +48,7 @@ function Messages({
           firebaseKey={firebaseKey}
           timeStamp={timeStamp}
           text={text}
+          userFirebaseKey={userFirebaseKey}
           formTitle={'Edit Message'}
           />
         }
