@@ -5,8 +5,14 @@ import getMessages from './messageData';
 
 const DBURL = firebaseConfig.databaseURL;
 
+const getChannelMessagesJoin = () => new Promise((resolve, reject) => {
+  axios.get(`${DBURL}/channelMessagesJoin.json`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
 const getChannelMessages = () => new Promise((resolve, reject) => {
-  Promise.all([getChannels(), getMessages(), getChannelMessages()])
+  Promise.all([getChannels(), getMessages(), getChannelMessagesJoin()])
     .then(([messages, channels, channelMessagesJoin]) => {
       const allMessageUserArray = messages.map((message) => {
         const channelRelationshipArray = channelMessagesJoin.filter((mc) => mc.firebaseKey === message.firebaseKey);
@@ -30,21 +36,10 @@ const addChannelMessages = (channelMessageObject) => new Promise((resolve, rejec
     }).catch((error) => reject(error));
 });
 
-const deleteChannelMessages = (channelMessageObject) => new Promise((resolve, reject) => {
+const deleteChannelMessages = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${DBURL}/channelMessageJoin/${firebaseKey}.json`)
-    .then(() => getChannelMessages().then((channelMessageArray) => ))
-})
-
-const deleteChannel = (firebaseKey, user) => new Promise((resolve, reject) => {
-  axios.delete(`${DBURL}/channels/${firebaseKey}.json`)
-    .then(() => getChannels(user).then((channelArray) => resolve(channelArray)))
+    .then(() => getChannelMessages().then((channelMessageArray) => resolve(channelMessageArray)))
     .catch((error) => reject(error));
 });
 
-const updateChannel = (channels, user) => new Promise((resolve, reject) => {
-  axios.patch(`${DBURL}/channels/${channels.firebaseKey}.json`, channels)
-    .then(() => getChannels(user).then(resolve))
-    .catch((error) => reject(error));
-});
-
-export { getChannelMessages, addChannelMessages };
+export { getChannelMessages, addChannelMessages, deleteChannelMessages };

@@ -4,7 +4,13 @@ import { Button } from 'reactstrap';
 import ChannelCard from '../components/Channels';
 import ChannelForm from '../forms/ChannelForms';
 
-function ChannelsView({ user, setChannels, channels }) {
+function ChannelsView({
+  user,
+  setChannels,
+  channels,
+  setUserChannels,
+  channelKey
+}) {
   const [showAddChannel, setAddChannel] = useState(false);
 
   const handleClick = () => {
@@ -18,7 +24,12 @@ function ChannelsView({ user, setChannels, channels }) {
           ? <Button onClick={handleClick}>Add Channel</Button>
           : <div>
             <Button onClick={handleClick}>Close</Button>
-            <ChannelForm setChannels={setChannels} user={user} />
+            <ChannelForm
+            setChannels={setChannels}
+            user={user}
+            setUserChannels={setUserChannels}
+            channelKey={channelKey}
+            />
           </div>
         }
       </div>
@@ -27,6 +38,7 @@ function ChannelsView({ user, setChannels, channels }) {
           key={channelInfo.firebaseKey}
           firebaseKey={channelInfo.firebaseKey}
           channelName={channelInfo.channelName}
+          channelKey={channelInfo.channelKey}
           uid={channelInfo.uid}
           setChannels={setChannels}
           user={user}
@@ -39,6 +51,8 @@ function ChannelsView({ user, setChannels, channels }) {
 ChannelsView.propTypes = {
   channels: PropTypes.array.isRequired,
   setChannels: PropTypes.func.isRequired,
+  setUserChannels: PropTypes.func.isRequired,
+  channelKey: PropTypes.string.isRequired,
   user: PropTypes.any
 };
 
