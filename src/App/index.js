@@ -18,7 +18,8 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
 
   const checkUser = (newUser, authed) => {
-    if (newUser) {
+    const checkStatus = Object.values(newUser);
+    if (checkStatus.length >= 1) {
       const userArr = Object.values(newUser);
       setLoggedInUser(userArr[0]);
     } else {
