@@ -8,26 +8,38 @@ import { getChannels } from '../helpers/data/ChannelData';
 import Routes from '../helpers/Routes';
 import './App.scss';
 import { getMessages } from '../helpers/data/messageData';
+import { addUser, getUserByUID } from '../helpers/data/users';
 
 function App() {
   const [channels, setChannels] = useState([]);
   const [organizations, setOrganizations] = useState([]);
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState({});
+
+  const checkUser = (newUser) => {
+    if (newUser) {
+      const userArr = Object.values(newUser);
+      setLoggedInUser(userArr[0]);
+    } else {
+      addUser(newUser).then((userResponse) => setLoggedInUser(userResponse));
+    }
+  };
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed) {
         const userInfoObj = {
           fullName: authed.displayName,
-          profileImage: authed.photoURL,
+          imageURL: authed.photoURL,
+          role: 'user',
           uid: authed.uid,
-          user: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
         getOrganizations().then((response) => setOrganizations(response));
         getChannels(userInfoObj).then((response) => setChannels(response));
         getMessages().then((response) => setMessages(response));
+        getUserByUID(authed.uid).then((singleUser) => checkUser(singleUser));
       } else if (user || user === null) {
         setUser(false);
       }
@@ -45,6 +57,7 @@ function App() {
           setOrganizations={setOrganizations}
           messages={messages}
           setMessages={setMessages}
+          loggedInUser={loggedInUser}
         />
       </Router>
     </div>
