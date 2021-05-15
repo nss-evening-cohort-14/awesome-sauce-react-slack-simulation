@@ -38,22 +38,8 @@ const getOrgChannels = (channelId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const deleteOrgChannels = (firebaseKey, user) => new Promise((resolve, reject) => {
-  getOrgChannels(firebaseKey).then((orgChanArray) => {
-    const deleteChannels = orgChanArray.map((chan) => deleteChannels(chan.firebaseKey, user));
-    Promise.all(deleteChannels).then(() => resolve(deleteChannels(firebaseKey, user)));
-  }).catch((error) => reject(error));
-});
-
-// const deleteBoardPins = (firebaseKey, user) => new Promise((resolve, reject) => {
-//   getBoardPins(firebaseKey).then((pinBoardArray) => {
-//     const deletePins = pinBoardArray.map((pin) => deletePin(pin.firebaseKey, user));
-//     Promise.all(deletePins).then(() => resolve(deleteBoard(firebaseKey, user)));
-//   }).catch((error) => reject(error));
-// });
-
 export {
   getOrganizations, addOrganization,
   deleteOrganization, updateOrganization,
-  getOrgChannels, deleteOrgChannels
+  getOrgChannels
 };
