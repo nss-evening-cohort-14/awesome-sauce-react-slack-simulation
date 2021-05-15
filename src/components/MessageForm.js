@@ -4,11 +4,12 @@ import { Button } from 'reactstrap';
 import { addMessage, updateMessage } from '../helpers/data/messageData';
 
 function MessageForm({
-  formTitle, setMessages, text, firebaseKey, timeStamp
+  formTitle, setMessages, text, firebaseKey, timeStamp, userFirebaseKey
 }) {
   const [newMessage, setNewMessage] = useState({
     text: text || '',
     timeStamp: timeStamp || 'just now',
+    userFirebaseKey,
     firebaseKey: firebaseKey || null
   });
 
@@ -40,7 +41,7 @@ function MessageForm({
         value={newMessage.value}
         onChange={handleInputChange} />
         <br/>
-        <Button color='info' type='submit'>Submit</Button>
+        <Button color='primary' type='submit'>Submit</Button>
       </form>
     </div>
   );
@@ -51,7 +52,8 @@ MessageForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
   text: PropTypes.string,
   firebaseKey: PropTypes.string,
-  timeStamp: PropTypes.string
+  timeStamp: PropTypes.string,
+  userFirebaseKey: PropTypes.string.isRequired
 };
 
 export default MessageForm;

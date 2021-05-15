@@ -13,7 +13,8 @@ function Routes({
   channels,
   setChannels,
   messages,
-  setMessages
+  setMessages,
+  loggedInUser
 }) {
   return (
     <>
@@ -32,6 +33,7 @@ function Routes({
           <Route exact path='/messages' component={() => <MessageList
           messages={messages}
           setMessages={setMessages}
+          loggedInUser={loggedInUser}
           />} />
           <Route path='*' component={Home} />
         </Switch>
@@ -47,7 +49,8 @@ Routes.propTypes = {
   setOrganizations: PropTypes.func.isRequired,
   user: PropTypes.any,
   messages: PropTypes.array.isRequired,
-  setMessages: PropTypes.func.isRequired
+  setMessages: PropTypes.func.isRequired,
+  loggedInUser: PropTypes.object.isRequired
 };
 
 export default Routes;
