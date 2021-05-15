@@ -5,9 +5,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { getOrganizations } from '../helpers/data/organizationData';
 import { getChannels } from '../helpers/data/ChannelData';
+import { getMessages } from '../helpers/data/messageData';
 import Routes from '../helpers/Routes';
 import './App.scss';
-import { getMessages } from '../helpers/data/messageData';
+
 
 function App() {
   const [channels, setChannels] = useState([]);

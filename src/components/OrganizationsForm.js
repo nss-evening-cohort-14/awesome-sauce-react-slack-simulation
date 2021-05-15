@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Button, Form, FormGroup, Input, Label
@@ -30,7 +30,7 @@ const OrganizationForm = ({
     }));
   };
 
-  // const history = useHistory();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ const OrganizationForm = ({
     } else {
       addOrganization(organization, user).then((response) => {
         setOrganizations(response);
-        // history.push('/organizations');
+        history.push('/organizations');
       });
 
       // Clears Input Fields
