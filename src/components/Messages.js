@@ -12,7 +12,8 @@ function Messages({
   timeStamp,
   firebaseKey,
   setMessages,
-  userFirebaseKey
+  userFirebaseKey,
+  loggedUserKey
 }) {
   const [editing, setEditing] = useState(false);
   const [username, setUsername] = useState({});
@@ -29,19 +30,11 @@ function Messages({
     }
   };
 
-  useEffect(() => {
-    getUser(userFirebaseKey).then((userObj) => setUsername(userObj));
-  }, []);
-
-  return (
-    <div>
-      <Card body className="text-center">
-        <CardTitle tag="h3">{username.fullName}</CardTitle>
-        <CardText>{text}</CardText>
-        <CardText>{timeStamp}</CardText>
-        <Button color='info' onClick={() => handleClick('edit')}>
-          {editing ? 'Close' : 'Edit'}
-        </Button>
+  const userCanEdit = () => (
+    <>
+      <Button color='info' onClick={() => handleClick('edit')}>
+        {editing ? 'Close' : 'Edit'}
+      </Button>
         {
           editing && <MessageForm
           setMessages={setMessages}
@@ -53,6 +46,27 @@ function Messages({
           />
         }
         <Button color='danger' onClick={() => handleClick('delete')}>Delete</Button>
+    </>
+  );
+
+  const userReactions = () => (
+    <>
+    <Button color='success'>Like</Button>
+    <Button color='warning'>Dislike</Button>
+    </>
+  );
+
+  useEffect(() => {
+    getUser(userFirebaseKey).then((userObj) => setUsername(userObj));
+  }, []);
+
+  return (
+    <div>
+      <Card body className="text-center">
+        <CardTitle tag="h3">{username.fullName}</CardTitle>
+        <CardText>{text}</CardText>
+        <CardText>{timeStamp}</CardText>
+        { loggedUserKey === userFirebaseKey ? userCanEdit() : userReactions() }
       </Card>
     </div>
   );
@@ -63,7 +77,8 @@ Messages.propTypes = {
   timeStamp: PropTypes.any.isRequired,
   firebaseKey: PropTypes.string.isRequired,
   setMessages: PropTypes.func.isRequired,
-  userFirebaseKey: PropTypes.string.isRequired
+  userFirebaseKey: PropTypes.string.isRequired,
+  loggedUserKey: PropTypes.string.isRequired
 };
 
 export default Messages;

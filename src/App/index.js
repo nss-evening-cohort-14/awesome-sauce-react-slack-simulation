@@ -8,7 +8,7 @@ import { getChannels } from '../helpers/data/ChannelData';
 import Routes from '../helpers/Routes';
 import './App.scss';
 import { getMessages } from '../helpers/data/messageData';
-import { addUser } from '../helpers/data/users';
+import { addUser, getUserByUID } from '../helpers/data/users';
 
 function App() {
   const [channels, setChannels] = useState([]);
@@ -16,6 +16,15 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState({});
+
+  const checkUser = (newUser) => {
+    if (newUser) {
+      const userArr = Object.values(newUser);
+      setLoggedInUser(userArr[0]);
+    } else {
+      addUser(newUser).then((userResponse) => setLoggedInUser(userResponse));
+    }
+  };
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -30,7 +39,7 @@ function App() {
         getOrganizations().then((response) => setOrganizations(response));
         getChannels(userInfoObj).then((response) => setChannels(response));
         getMessages().then((response) => setMessages(response));
-        addUser(userInfoObj).then((userResponse) => setLoggedInUser(userResponse));
+        getUserByUID(authed.uid).then((singleUser) => checkUser(singleUser));
       } else if (user || user === null) {
         setUser(false);
       }

@@ -41,7 +41,7 @@ function MessageForm({
         value={newMessage.value}
         onChange={handleInputChange} />
         <br/>
-        <Button color='info' type='submit'>Submit</Button>
+        <Button color='primary' type='submit'>Submit</Button>
       </form>
     </div>
   );

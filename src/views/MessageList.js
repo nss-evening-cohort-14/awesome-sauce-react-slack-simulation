@@ -16,6 +16,7 @@ function MessageList({ messages, setMessages, loggedInUser }) {
           timeStamp={message.timeStamp}
           setMessages={setMessages}
           userFirebaseKey={message.userFirebaseKey}
+          loggedUserKey={loggedInUser.firebaseKey}
           />
         ))
       }

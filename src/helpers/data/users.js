@@ -20,4 +20,10 @@ const addUser = (userObject) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export { getUser, addUser };
+const getUserByUID = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/users.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
+export { getUser, addUser, getUserByUID };
