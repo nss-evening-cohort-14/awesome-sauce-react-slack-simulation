@@ -22,7 +22,8 @@ function App() {
       const userArr = Object.values(newUser);
       setLoggedInUser(userArr[0]);
     } else {
-      addUser(newUser).then((userResponse) => setLoggedInUser(userResponse));
+      const newUserArr = Object.values(newUser);
+      addUser(newUserArr[0]).then((userResponse) => setLoggedInUser(userResponse));
     }
   };
 

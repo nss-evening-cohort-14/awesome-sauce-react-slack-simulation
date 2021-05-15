@@ -36,5 +36,5 @@ export {
   getChannels,
   addChannel,
   deleteChannel,
-  updateChannel
+  updateChannel,
 };
