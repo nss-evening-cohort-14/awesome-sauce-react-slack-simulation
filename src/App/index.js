@@ -17,12 +17,18 @@ function App() {
   const [user, setUser] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState({});
 
-  const checkUser = (newUser) => {
+  const checkUser = (newUser, authed) => {
     if (newUser) {
       const userArr = Object.values(newUser);
       setLoggedInUser(userArr[0]);
     } else {
-      addUser(newUser).then((userResponse) => setLoggedInUser(userResponse));
+      const newUserInfoObj = {
+        fullName: authed.displayName,
+        imageURL: authed.photoURL,
+        role: 'user',
+        uid: authed.uid,
+      };
+      addUser(newUserInfoObj).then((userResponse) => setLoggedInUser(userResponse));
     }
   };
 
@@ -39,7 +45,7 @@ function App() {
         getOrganizations().then((response) => setOrganizations(response));
         getChannels(userInfoObj).then((response) => setChannels(response));
         getMessages().then((response) => setMessages(response));
-        getUserByUID(authed.uid).then((singleUser) => checkUser(singleUser));
+        getUserByUID(authed.uid).then((singleUser) => checkUser(singleUser, authed));
       } else if (user || user === null) {
         setUser(false);
       }
