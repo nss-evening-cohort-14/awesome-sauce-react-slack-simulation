@@ -4,6 +4,7 @@ While logged in as an authenticated user, you can see, create, edit and delete d
 
 ## Deployed Sites
 
+https://group-slack-sauce.netlify.app
 
 ## ERDs
 
