@@ -16,7 +16,7 @@ const getOrganizationChannels = () => new Promise((resolve, reject) => {
   Promise.all([getOrganizations(), getChannels(), getOrgChannelsJoin()])
     .then(([organizations, channels, orgChannelJoin]) => {
       const allChannelsInfoArray = organizations.map((org) => {
-        const orgRelationshipsArray = orgChannelJoin.filter((orgChannel) => orgChannel.orgKey === organizations.firebaseKey);
+        const orgRelationshipsArray = orgChannelJoin.filter((orgChannel) => orgChannel.orgKey === org.firebaseKey);
 
         const channelInfoArray = orgRelationshipsArray.map(
           (channelRelationship) => channels.find((chn) => chn.firebaseKey === channelRelationship.channelId)

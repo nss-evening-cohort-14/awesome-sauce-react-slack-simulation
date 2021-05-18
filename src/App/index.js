@@ -9,6 +9,7 @@ import { getMessages } from '../helpers/data/messageData';
 import { addUser, getUserByUID } from '../helpers/data/users';
 import Routes from '../helpers/Routes';
 import './App.scss';
+import { getOrgChannelsJoin, getOrganizationChannels } from '../helpers/data/OrgChannelsData';
 
 function App() {
   const [channels, setChannels] = useState([]);
@@ -16,6 +17,8 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [orgChannels, setOrgChannels] = useState([]);
+  const [organizationChannels, setOrganizationChannels] = useState([]);
 
   const checkUser = (newUser, authed) => {
     const checkStatus = Object.values(newUser);
@@ -47,6 +50,8 @@ function App() {
         getChannels(userInfoObj).then((response) => setChannels(response));
         getMessages().then((response) => setMessages(response));
         getUserByUID(authed.uid).then((singleUser) => checkUser(singleUser, authed));
+        getOrgChannelsJoin().then((joinTable) => setOrgChannels(joinTable));
+        getOrganizationChannels().then((newJoinTable) => setOrganizationChannels(newJoinTable));
       } else if (user || user === null) {
         setUser(false);
       }
@@ -65,6 +70,10 @@ function App() {
           messages={messages}
           setMessages={setMessages}
           loggedInUser={loggedInUser}
+          orgChannels={orgChannels}
+          setOrgChannels={setOrgChannels}
+          organizationChannels={organizationChannels}
+          setOrganizationChannels={setOrganizationChannels}
         />
       </Router>
     </div>
