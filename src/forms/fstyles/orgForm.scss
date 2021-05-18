@@ -1,0 +1,18 @@
+#addOrganizationForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .orgSubmit {
+    background-color: #611F69;
+    color: lightgrey;
+    border-radius: 5px;
+  }
+  #organizationName {
+    border-radius: 5px;
+  }
+
+  #icon {
+    border-radius: 5px;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Messages from '../components/Messages';
-import MessageForm from '../components/MessageForm';
+import MessageForm from '../forms/MessageForm';
 
 function MessageList({ messages, setMessages, loggedInUser }) {
   return (
