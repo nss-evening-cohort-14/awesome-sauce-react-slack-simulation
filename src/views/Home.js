@@ -1,8 +1,9 @@
 import React from 'react';
+import './vstyles/home.scss';
 
 export default function Home() {
   return (
-    <div>
+    <div className="homeView">
     </div>
   );
 }

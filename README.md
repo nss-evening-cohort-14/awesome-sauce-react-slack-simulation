@@ -4,6 +4,7 @@ While logged in as an authenticated user, you can see, create, edit and delete d
 
 ## Deployed Sites
 
+https://group-slack-sauce.netlify.app
 
 ## ERDs
 
@@ -23,13 +24,12 @@ https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
 
 ### Requirements
 * Authenticate to perform any actions (CRUD)
-* Admin/ Authenticated User
 * Messages
-* Message Channels
-* Like/ Dislike
-* Message Timestamps
+* Channels
+* Organizations
+* Intermediary Data
 * Mock Layout/Styling 
-* **Stretch goal:** Emojis, Gif Selector, Change Theme
+* **Stretch goal:** Emojis, Gif Selector, Change Theme, Admin/ Authenticated User, Like/Dislike, Timestamps
 
 ### User Stories
 
@@ -113,14 +113,17 @@ https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
 
 ### Screenshots
 
+<img width="1440" alt="Screen Shot 2021-05-18 at 5 04 42 PM" src="https://user-images.githubusercontent.com/76716670/118723307-40657f80-b7fb-11eb-99ea-a9c360326241.png">
 
 
 ## Loom Video Walkthroughs
 
+https://www.loom.com/share/255ff3e99a7d4c30909ed1ec3247abb4
 
 ## Contributors
 [Honey-Rae Swan](https://github.com/thedigitalmenagerie)
 https://github.com/fimoefive
 https://github.com/caseywalker
+https://github.com/SaraSchoonover
 
 
