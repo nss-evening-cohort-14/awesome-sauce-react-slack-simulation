@@ -41,13 +41,12 @@ const OrganizationCard = ({
         <img className="orgIcon" src={icon} />
         <CardTitle tag="h5">{organizationName}</CardTitle>
         <Button className="deleteBtn" onClick={() => handleClick('delete')}>
-          <img src={x}/></Button>
+          <img src={x} /></Button>
         <Button className="editBtn" onClick={() => handleClick('edit')}>
-          {editing ? <img className="close" src={x}/> : <img className="edit" src={write}/>}
+          {editing ? <img className="close" src={x} /> : <img className="edit" src={write} />}
         </Button>
         {editing
           && <OrganizationForm
-            fromTitle='Edit Organization'
             uid={uid}
             user={user}
             firebaseKey={firebaseKey}

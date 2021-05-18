@@ -1,22 +1,29 @@
 {
   "-M_O09KSbOFzPFMFMVYn": {
     "firebaseKey": "-M_O09KSbOFzPFMFMVYn",
-    "organizationName": "Crocodile, nile",
-    "icon": "http://dummyimage.com/205x100.png/dddddd/000000"
+    "icon": "https://pbs.twimg.com/profile_images/1245094908039438338/8v8QN-_f.jpg",
+    "organizationName": "NSS",
+    "uid": "nHQLXuKtrmPq3ijPZmuYqkgQwjU2"
+    
   },
   "-M_O09KT5K2yuqVvY0VP": {
     "firebaseKey": "-M_O09KT5K2yuqVvY0VP",
-    "organizationName": "Spurfowl, yellow-necked",
-    "icon": "http://dummyimage.com/246x100.png/dddddd/000000"
+    "icon": "https://img.icons8.com/emoji/452/basketball-emoji.png",
+    "organizationName": "Basketball",
+    "uid": "nHQLXuKtrmPq3ijPZmuYqkgQwjU2"
+    
   },
   "-M_O09KUNqwZAUeWmvTB": {
     "firebaseKey": "-M_O09KUNqwZAUeWmvTB",
-    "organizationName": "Blue duck",
-    "icon": "http://dummyimage.com/118x100.png/5fa2dd/ffffff"
+    "icon": "https://www.mcicon.com/wp-content/uploads/2021/03/Cat-31.jpg",
+    "organizationName": "Pets",
+    "uid": "nHQLXuKtrmPq3ijPZmuYqkgQwjU2"
+    
   },
   "-M_O09KWEhnZO9RipvYU": {
     "firebaseKey": "-M_O09KWEhnZO9RipvYU",
-    "organizationName": "White-throated robin",
-    "icon": "http://dummyimage.com/140x100.png/5fa2dd/ffffff"
+    "icon": "https://image.shutterstock.com/image-vector/food-icon-design-template-260nw-1042503748.jpg",
+    "organizationName": "Foodie",
+    "uid": "nHQLXuKtrmPq3ijPZmuYqkgQwjU2"
   }
 }
