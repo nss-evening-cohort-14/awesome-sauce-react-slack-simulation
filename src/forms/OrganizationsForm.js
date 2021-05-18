@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  Button, Form, FormGroup, Input, Label
-} from 'reactstrap';
 import { addOrganization, updateOrganization } from '../helpers/data/organizationData';
+import './fstyles/orgForm.scss';
 
 const OrganizationForm = ({
   formTitle,
@@ -52,17 +50,16 @@ const OrganizationForm = ({
   };
 
   return (
-    <>
-      <div className='organization-form'>
-        <Form
+    
+      
+        <form
           id='addOrganizationForm'
           autoComplete='off'
           onSubmit={handleSubmit}
         >
-          <h2>{formTitle}</h2>
-          <FormGroup>
-            <Label for="organizationName">Name: </Label>
-            <Input
+          <formGroup>
+            <label for="organizationName">Name: </label>
+            <input
               name='organizationName'
               id='organizationName'
               value={organization.organizationName}
@@ -70,23 +67,25 @@ const OrganizationForm = ({
               placeholder='Enter a Name'
               onChange={handleInputChange}
             />
-          </FormGroup>
+          </formGroup>
 
-          <FormGroup>
-            <Label for="icon">ICON: </Label>
-            <Input
+          <formGroup>
+            <label for="icon">ICON: </label>
+            <input
               name='icon'
               id='icon'
               value={organization.icon}
               type='text'
               onChange={handleInputChange}
             />
-          </FormGroup>
+          </formGroup>
 
-          <Button type='submit'>Submit</Button>
-        </Form>
-      </div>
-    </>
+          <formGroup>
+          <button className="orgSubmit" type='submit'>Submit</button>
+          </formGroup>
+
+        </form>
+    
   );
 };
 

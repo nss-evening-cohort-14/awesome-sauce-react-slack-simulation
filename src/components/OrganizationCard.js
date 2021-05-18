@@ -6,7 +6,10 @@ import {
   CardTitle
 } from 'reactstrap';
 import { deleteOrganization } from '../helpers/data/organizationData';
-import OrganizationForm from './OrganizationsForm';
+import OrganizationForm from '../forms/OrganizationsForm';
+import x from '../assets/x.png';
+import write from '../assets/write.png';
+import './cstyles/orgCard.scss';
 
 const OrganizationCard = ({
   uid,
@@ -33,13 +36,14 @@ const OrganizationCard = ({
   };
 
   return (
-    <>
+    <div className="orgCard">
       <CardBody>
-        <img src={icon} />
+        <img className="orgIcon" src={icon} />
         <CardTitle tag="h5">{organizationName}</CardTitle>
-        <Button color="danger" onClick={() => handleClick('delete')}>Delete Organization</Button>
-        <Button color="info" onClick={() => handleClick('edit')}>
-          {editing ? 'CloseForm' : 'Edit Organization'}
+        <Button className="deleteBtn" onClick={() => handleClick('delete')}>
+          <img src={x}/></Button>
+        <Button className="editBtn" onClick={() => handleClick('edit')}>
+          {editing ? <img className="close" src={x}/> : <img className="edit" src={write}/>}
         </Button>
         {editing
           && <OrganizationForm
@@ -53,7 +57,7 @@ const OrganizationCard = ({
           />
         }
       </CardBody>
-    </>
+    </div>
   );
 };
 

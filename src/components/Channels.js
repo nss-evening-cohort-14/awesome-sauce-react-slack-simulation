@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Card, CardText, Button } from 'reactstrap';
+import { CardBody, CardText, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { deleteChannel } from '../helpers/data/ChannelData';
 import ChannelForm from '../forms/ChannelForms';
+import write from '../assets/write.png';
+import x from '../assets/x.png';
+import './cstyles/channels.scss';
 
 const ChannelCard = ({
   uid,
@@ -22,11 +25,14 @@ const ChannelCard = ({
   };
 
   return (
-    <Card>
+    <div className="channelCard">
+    <CardBody>
       <CardText>{channelName}</CardText>
-      <Button onClick={() => handleClick('delete')}>Delete Channel</Button>
-      <Button onClick={() => handleClick('edit')}>
-        {editingChannels ? 'Close Form' : 'Edit Channel'}
+      <Button className="deleteBtn" onClick={() => handleClick('delete')}>
+      <img src={x}/>
+      </Button>
+      <Button className="editBtn" onClick={() => handleClick('edit')}>
+        {editingChannels ? <img className="close" src={x}/> : <img className="edit" src={write}/>}
       </Button>
       {editingChannels
       && <ChannelForm
@@ -37,7 +43,8 @@ const ChannelCard = ({
           channelName={channelName}
         />
       }
-    </Card>
+    </CardBody>
+    </div>
   );
 };
 
