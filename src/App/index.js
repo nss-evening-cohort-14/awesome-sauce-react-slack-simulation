@@ -8,8 +8,8 @@ import { getChannels } from '../helpers/data/ChannelData';
 import { getMessages } from '../helpers/data/messageData';
 import { addUser, getUserByUID } from '../helpers/data/users';
 import Routes from '../helpers/Routes';
-import './App.scss';
 import { getOrgChannelsJoin, getOrganizationChannels } from '../helpers/data/OrgChannelsData';
+import './App.scss';
 
 function App() {
   const [channels, setChannels] = useState([]);
@@ -31,6 +31,7 @@ function App() {
         imageURL: authed.photoURL,
         role: 'user',
         uid: authed.uid,
+        user: authed.email.split('@')[0]
       };
       addUser(newUserInfoObj).then((userResponse) => setLoggedInUser(userResponse));
     }
@@ -44,6 +45,7 @@ function App() {
           imageURL: authed.photoURL,
           role: 'user',
           uid: authed.uid,
+          user: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
         getOrganizations().then((response) => setOrganizations(response));

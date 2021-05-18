@@ -5,7 +5,6 @@ import { getChannels, deleteChannel } from './ChannelData';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// ?orderBy = "channelId" & equalTo="${channelId}"
 const getOrgChannelsJoin = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/orgChannelsJoin.json`)
     .then((response) => resolve(Object.values(response.data)))
