@@ -112,6 +112,7 @@ https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
 
 ### Screenshots
 
+<img width="1440" alt="Screen Shot 2021-05-18 at 5 04 42 PM" src="https://user-images.githubusercontent.com/76716670/118723307-40657f80-b7fb-11eb-99ea-a9c360326241.png">
 
 
 ## Loom Video Walkthroughs
