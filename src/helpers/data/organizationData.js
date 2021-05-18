@@ -32,14 +32,7 @@ const updateOrganization = (organizations, user) => new Promise((resolve, reject
     .catch((error) => reject(error));
 });
 
-const getOrgChannels = (channelId) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/channels.json?orderBy="boardId"&equalTo="${channelId}"`)
-    .then((response) => resolve(Object.values(response.data)))
-    .catch((error) => reject(error));
-});
-
 export {
   getOrganizations, addOrganization,
-  deleteOrganization, updateOrganization,
-  getOrgChannels
+  deleteOrganization, updateOrganization
 };

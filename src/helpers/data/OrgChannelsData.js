@@ -1,5 +1,16 @@
+import axios from 'axios';
+import firebaseConfig from '../apiKeys';
 import { deleteOrganization, getOrgChannels } from './organizationData';
 import { deleteChannel } from './ChannelData';
+
+const dbUrl = firebaseConfig.databaseURL;
+
+// ?orderBy = "channelId" & equalTo="${channelId}"
+const getOrgChannelsJoin = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/orgChannelsJoin.json`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 
 const deleteOrgChannels = (firebaseKey, user) => new Promise((resolve, reject) => {
   getOrgChannels(firebaseKey).then((orgChanArray) => {
@@ -15,4 +26,5 @@ const deleteOrgChannels = (firebaseKey, user) => new Promise((resolve, reject) =
 //   }).catch((error) => reject(error));
 // });
 
-export default deleteOrgChannels;
+
+export getOrgChannelsJoin, deleteOrgChannels;
