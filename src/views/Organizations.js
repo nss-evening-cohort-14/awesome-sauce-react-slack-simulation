@@ -4,8 +4,9 @@ import { Button } from 'reactstrap';
 import OrganizationCard from '../components/OrganizationCard';
 import OrganizationForm from '../forms/OrganizationsForm';
 import './vstyles/organizations.scss';
-import plusSign from '../assets/plusSign.png'
-import x from '../assets/x.png'
+import plusSign from '../assets/plusSign.png';
+import x from '../assets/x.png';
+
 function Organizations({
   user, organizations,
   setOrganizations
@@ -22,9 +23,9 @@ function Organizations({
         <div>
           {!showAddOrganization
             ? <Button className="addOrgBtn" onClick={handleClick}>
-              <img src={plusSign}/></Button>
+              <img src={plusSign} /></Button>
             : <div>
-              <Button className="closeForm" onClick={handleClick}><img src={x}/></Button>
+              <Button className="closeForm" onClick={handleClick}><img src={x} /></Button>
               <OrganizationForm
                 setOrganizations={setOrganizations}
                 user={user}

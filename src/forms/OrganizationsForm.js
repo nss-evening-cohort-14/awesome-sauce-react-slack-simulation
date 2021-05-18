@@ -50,42 +50,41 @@ const OrganizationForm = ({
   };
 
   return (
-    
-      
-        <form
-          id='addOrganizationForm'
-          autoComplete='off'
-          onSubmit={handleSubmit}
-        >
-          <formGroup>
-            <label for="organizationName">Name: </label>
-            <input
-              name='organizationName'
-              id='organizationName'
-              value={organization.organizationName}
-              type='text'
-              placeholder='Enter a Name'
-              onChange={handleInputChange}
-            />
-          </formGroup>
+    <>
+      <h2>{formTitle}</h2>
+      <form
+        id='addOrganizationForm'
+        autoComplete='off'
+        onSubmit={handleSubmit}
+      >
+        <formGroup>
+          <label htmlFor="organizationName">Name: </label>
+          <input
+            name='organizationName'
+            id='organizationName'
+            value={organization.organizationName}
+            type='text'
+            placeholder='Enter a Name'
+            onChange={handleInputChange}
+          />
+        </formGroup>
 
-          <formGroup>
-            <label for="icon">ICON: </label>
-            <input
-              name='icon'
-              id='icon'
-              value={organization.icon}
-              type='text'
-              onChange={handleInputChange}
-            />
-          </formGroup>
+        <formGroup>
+          <label htmlFor="icon">ICON: </label>
+          <input
+            name='icon'
+            id='icon'
+            value={organization.icon}
+            type='text'
+            onChange={handleInputChange}
+          />
+        </formGroup>
 
-          <formGroup>
+        <formGroup>
           <button className="orgSubmit" type='submit'>Submit</button>
-          </formGroup>
-
-        </form>
-    
+        </formGroup>
+      </form>
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import ChannelForm from '../forms/ChannelForms';
 import './vstyles/channels.scss';
 import plusSign from '../assets/plusSign.png';
 import x from '../assets/x.png';
+
 function ChannelsView({ user, setChannels, channels }) {
   const [showAddChannel, setAddChannel] = useState(false);
 
@@ -18,9 +19,9 @@ function ChannelsView({ user, setChannels, channels }) {
       <div>
         {!showAddChannel
           ? <Button className="channelAddBtn" onClick={handleClick}>
-            <img src={plusSign}/></Button>
+            <img src={plusSign} /></Button>
           : <div>
-            <Button className="closeForm" onClick={handleClick}><img src={x}/></Button>
+            <Button className="closeForm" onClick={handleClick}><img src={x} /></Button>
             <ChannelForm setChannels={setChannels} user={user} />
           </div>
         }
