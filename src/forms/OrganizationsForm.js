@@ -57,7 +57,7 @@ const OrganizationForm = ({
         autoComplete='off'
         onSubmit={handleSubmit}
       >
-        <formGroup>
+        <div>
           <label htmlFor="organizationName">Name: </label>
           <input
             name='organizationName'
@@ -67,9 +67,9 @@ const OrganizationForm = ({
             placeholder='Enter a Name'
             onChange={handleInputChange}
           />
-        </formGroup>
+        </div>
 
-        <formGroup>
+        <div>
           <label htmlFor="icon">ICON: </label>
           <input
             name='icon'
@@ -78,11 +78,11 @@ const OrganizationForm = ({
             type='text'
             onChange={handleInputChange}
           />
-        </formGroup>
+        </div>
 
-        <formGroup>
+        <div>
           <button className="orgSubmit" type='submit'>Submit</button>
-        </formGroup>
+        </div>
       </form>
     </>
   );
