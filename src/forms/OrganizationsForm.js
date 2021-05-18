@@ -5,7 +5,6 @@ import { addOrganization, updateOrganization } from '../helpers/data/organizatio
 import './fstyles/orgForm.scss';
 
 const OrganizationForm = ({
-  formTitle,
   setOrganizations,
   firebaseKey,
   icon,
@@ -51,7 +50,6 @@ const OrganizationForm = ({
 
   return (
     <>
-      <h2>{formTitle}</h2>
       <form
         id='addOrganizationForm'
         autoComplete='off'
@@ -89,7 +87,6 @@ const OrganizationForm = ({
 };
 
 OrganizationForm.propTypes = {
-  formTitle: PropTypes.string,
   setOrganizations: PropTypes.func,
   firebaseKey: PropTypes.string,
   icon: PropTypes.string,
