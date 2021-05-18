@@ -11,6 +11,8 @@ import {
   Button
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/data/auth';
+import './cstyles/navBar.scss';
+import slackLogo from '../assets/slackLogo.png';
 
 const NavBar = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +21,8 @@ const NavBar = ({ user }) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Slack Sauce</NavbarBrand>
+      <Navbar id="navBar" light expand="md">
+        <NavbarBrand className="navBrand" href="/"><img className="slackLogo" src={slackLogo}/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>

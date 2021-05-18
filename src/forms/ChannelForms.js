@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { addChannel, updateChannel } from '../helpers/data/ChannelData';
+import './fstyles/channelForm.scss';
 
 const ChannelForm = ({
   setChannels,
@@ -37,7 +38,7 @@ const ChannelForm = ({
     onSubmit={handleSubmit}
     >
     <label>Channel Name:</label>
-    <input name='channelName' type='text' placeholder='Channel Name' value={channel.channelName} onChange={handleInputChange}></input>
+    <input className="channelName" name='channelName' type='text' placeholder='Channel Name' value={channel.channelName} onChange={handleInputChange}></input>
     </form>
 
   );

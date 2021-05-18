@@ -4,8 +4,11 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { deleteMessage } from '../helpers/data/messageData';
-import MessageForm from './MessageForm';
+import MessageForm from '../forms/MessageForm';
 import { getUser } from '../helpers/data/users';
+import correctThumbsUp from '../assets/correctThumbsUp.png';
+import correctThumbsDown from '../assets/correctThumbsDown.png';
+import './cstyles/messages.scss';
 
 function Messages({
   text,
@@ -51,8 +54,8 @@ function Messages({
 
   const userReactions = () => (
     <>
-    <Button color='success'>Like</Button>
-    <Button color='warning'>Dislike</Button>
+    <Button className="likeBtn"><img src={correctThumbsUp}/></Button>
+    <Button className="dislikeBtn"><img src={correctThumbsDown}/></Button>
     </>
   );
 
@@ -61,7 +64,7 @@ function Messages({
   }, []);
 
   return (
-    <div>
+    <div className="messageCard">
       <Card body className="text-center">
         <CardTitle tag="h3">{username.fullName}</CardTitle>
         <CardText>{text}</CardText>

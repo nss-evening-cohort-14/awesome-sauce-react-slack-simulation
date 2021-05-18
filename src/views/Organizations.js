@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Button } from 'reactstrap';
 import OrganizationCard from '../components/OrganizationCard';
-import OrganizationForm from '../components/OrganizationsForm';
-
+import OrganizationForm from '../forms/OrganizationsForm';
+import './vstyles/organizations.scss';
+import plusSign from '../assets/plusSign.png'
+import x from '../assets/x.png'
 function Organizations({
   user, organizations,
   setOrganizations
@@ -15,13 +17,14 @@ function Organizations({
   };
 
   return (
-    <>
+    <div className="orgView">
       <div className="card-container" >
         <div>
           {!showAddOrganization
-            ? <Button onClick={handleClick}>Add Organization</Button>
+            ? <Button className="addOrgBtn" onClick={handleClick}>
+              <img src={plusSign}/></Button>
             : <div>
-              <Button onClick={handleClick}>Close</Button>
+              <Button className="closeForm" onClick={handleClick}><img src={x}/></Button>
               <OrganizationForm
                 setOrganizations={setOrganizations}
                 user={user}
@@ -30,7 +33,7 @@ function Organizations({
           }
         </div>
         {organizations.length && organizations.map((orgInfo) => (
-          <OrganizationCard
+          <OrganizationCard className="orgCard"
             key={orgInfo.firebaseKey}
             firebaseKey={orgInfo.firebaseKey}
             icon={orgInfo.icon}
@@ -41,7 +44,7 @@ function Organizations({
           />
         ))};
     </div>
-    </>
+    </div>
   );
 }
 
