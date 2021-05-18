@@ -1,7 +1,7 @@
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
-import { deleteOrganization, getOrgChannels } from './organizationData';
-import { deleteChannel } from './ChannelData';
+import { getOrganizations, deleteOrganization } from './organizationData';
+import { getChannels, deleteChannel } from './ChannelData';
 
 const dbUrl = firebaseConfig.databaseURL;
 
@@ -12,8 +12,24 @@ const getOrgChannelsJoin = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getOrganizationChannels = () => new Promise((resolve, reject) => {
+  Promise.all([getOrganizations(), getChannels(), getOrgChannelsJoin()])
+    .then(([organizations, channels, orgChannelJoin]) => {
+      const allChannelsInfoArray = organizations.map((org) => {
+        const orgRelationshipsArray = orgChannelJoin.filter((orgChannel) => orgChannel.orgKey === organizations.firebaseKey);
+
+        const channelInfoArray = orgRelationshipsArray.map(
+          (channelRelationship) => channels.find((chn) => chn.firebaseKey === channelRelationship.channelId)
+        );
+
+        return { ...organizations, channels: channelInfoArray };
+      });
+      resolve(allChannelsInfoArray);
+    }).catch((error) => reject(error));
+});
+
 const deleteOrgChannels = (firebaseKey, user) => new Promise((resolve, reject) => {
-  getOrgChannels(firebaseKey).then((orgChanArray) => {
+  getOrgChannelsJoin(firebaseKey).then((orgChanArray) => {
     const deleteChannels = orgChanArray.map((chan) => deleteChannel(chan.firebaseKey, user));
     Promise.all(deleteChannels).then(() => resolve(deleteOrganization(firebaseKey, user)));
   }).catch((error) => reject(error));
@@ -25,6 +41,7 @@ const deleteOrgChannels = (firebaseKey, user) => new Promise((resolve, reject) =
 //     Promise.all(deletePins).then(() => resolve(deleteBoard(firebaseKey, user)));
 //   }).catch((error) => reject(error));
 // });
-
-
-export getOrgChannelsJoin, deleteOrgChannels;
+export {
+  getOrgChannelsJoin, getOrganizationChannels,
+  deleteOrgChannels
+};
