@@ -23,13 +23,12 @@ https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
 
 ### Requirements
 * Authenticate to perform any actions (CRUD)
-* Admin/ Authenticated User
 * Messages
-* Message Channels
-* Like/ Dislike
-* Message Timestamps
+* Channels
+* Organizations
+* Intermediary Data
 * Mock Layout/Styling 
-* **Stretch goal:** Emojis, Gif Selector, Change Theme
+* **Stretch goal:** Emojis, Gif Selector, Change Theme, Admin/ Authenticated User, Like/Dislike, Timestamps
 
 ### User Stories
 
@@ -122,5 +121,6 @@ https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
 [Honey-Rae Swan](https://github.com/thedigitalmenagerie)
 https://github.com/fimoefive
 https://github.com/caseywalker
+https://github.com/SaraSchoonover
 
 
