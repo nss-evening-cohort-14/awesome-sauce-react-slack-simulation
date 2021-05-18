@@ -118,6 +118,7 @@ https://www.figma.com/file/vUeQ7ajUIsiuHuiyhAmvML/Slack-Simulation?node-id=0%3A1
 
 ## Loom Video Walkthroughs
 
+https://www.loom.com/share/255ff3e99a7d4c30909ed1ec3247abb4
 
 ## Contributors
 [Honey-Rae Swan](https://github.com/thedigitalmenagerie)
