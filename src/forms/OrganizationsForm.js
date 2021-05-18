@@ -5,7 +5,6 @@ import { addOrganization, updateOrganization } from '../helpers/data/organizatio
 import './fstyles/orgForm.scss';
 
 const OrganizationForm = ({
-  formTitle,
   setOrganizations,
   firebaseKey,
   icon,
@@ -50,15 +49,13 @@ const OrganizationForm = ({
   };
 
   return (
-    
-      
         <form
           id='addOrganizationForm'
           autoComplete='off'
           onSubmit={handleSubmit}
         >
           <formGroup>
-            <label for="organizationName">Name: </label>
+            <label htmlFor="organizationName">Name: </label>
             <input
               name='organizationName'
               id='organizationName'
@@ -70,7 +67,7 @@ const OrganizationForm = ({
           </formGroup>
 
           <formGroup>
-            <label for="icon">ICON: </label>
+            <label htmlFor="icon">ICON: </label>
             <input
               name='icon'
               id='icon'
@@ -85,7 +82,6 @@ const OrganizationForm = ({
           </formGroup>
 
         </form>
-    
   );
 };
 
