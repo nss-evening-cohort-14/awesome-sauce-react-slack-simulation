@@ -38,7 +38,7 @@ const OrganizationCard = ({
   return (
     <div className="orgCard">
       <CardBody>
-        <img className="orgIcon" src={icon} />
+        <img className="orgIcon" src={icon} alt="org"/>
         <CardTitle tag="h5">{organizationName}</CardTitle>
         <Button className="deleteBtn" onClick={() => handleClick('delete')}>
           <img src={x} alt="x button"/></Button>
