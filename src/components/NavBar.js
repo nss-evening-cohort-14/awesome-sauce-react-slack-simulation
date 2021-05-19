@@ -22,7 +22,7 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar id="navBar" light expand="md">
-        <NavbarBrand className="navBrand" href="/"><img className="slackLogo" src={slackLogo}/></NavbarBrand>
+        <NavbarBrand className="navBrand" href="/"><img className="slackLogo" src={slackLogo} alt="logo image"/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
