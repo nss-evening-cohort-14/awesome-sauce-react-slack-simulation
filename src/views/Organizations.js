@@ -23,9 +23,9 @@ function Organizations({
         <div>
           {!showAddOrganization
             ? <Button className="addOrgBtn" onClick={handleClick}>
-              <img src={plusSign}/></Button>
+              <img src={plusSign} alt="plus button"/></Button>
             : <div>
-              <Button className="closeForm" onClick={handleClick}><img src={x}/></Button>
+              <Button className="closeForm" onClick={handleClick}><img src={x} alt="x button"/></Button>
               <OrganizationForm
                 setOrganizations={setOrganizations}
                 user={user}
