@@ -54,8 +54,8 @@ function Messages({
 
   const userReactions = () => (
     <>
-    <Button className="likeBtn"><img src={correctThumbsUp}/></Button>
-    <Button className="dislikeBtn"><img src={correctThumbsDown}/></Button>
+    <Button className="likeBtn"><img src={correctThumbsUp} alt="like button"/></Button>
+    <Button className="dislikeBtn"><img src={correctThumbsDown} alt="dislike button"/></Button>
     </>
   );
 

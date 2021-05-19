@@ -29,10 +29,10 @@ const ChannelCard = ({
     <CardBody>
       <CardText>{channelName}</CardText>
       <Button className="deleteBtn" onClick={() => handleClick('delete')}>
-      <img src={x}/>
+      <img src={x} alt="x button"/>
       </Button>
       <Button className="editBtn" onClick={() => handleClick('edit')}>
-        {editingChannels ? <img className="close" src={x}/> : <img className="edit" src={write}/>}
+        {editingChannels ? <img className="close" src={x} alt="x button"/> : <img className="edit" src={write} alt="write button"/>}
       </Button>
       {editingChannels
       && <ChannelForm
