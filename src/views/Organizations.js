@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Button } from 'reactstrap';
 import OrganizationCard from '../components/OrganizationCard';
 import OrganizationForm from '../forms/OrganizationsForm';
-import './vstyles/organizations.scss';
 import plusSign from '../assets/plusSign.png';
 import x from '../assets/x.png';
+import './vstyles/organizations.scss';
 
 function Organizations({
   user, organizations,
