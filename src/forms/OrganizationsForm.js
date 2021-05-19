@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { addOrganization, updateOrganization } from '../helpers/data/organizationData';
 import './fstyles/orgForm.scss';
@@ -27,7 +27,7 @@ const OrganizationForm = ({
     }));
   };
 
-  // const history = useHistory();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ const OrganizationForm = ({
     } else {
       addOrganization(organization, user).then((response) => {
         setOrganizations(response);
-        // history.push('/organizations');
+        history.push('/organizations');
       });
 
       // Clears Input Fields
@@ -49,44 +49,44 @@ const OrganizationForm = ({
   };
 
   return (
-        <form
-          id='addOrganizationForm'
-          autoComplete='off'
-          onSubmit={handleSubmit}
-        >
-          <formGroup>
-            <label htmlFor="organizationName">Name: </label>
-            <input
-              name='organizationName'
-              id='organizationName'
-              value={organization.organizationName}
-              type='text'
-              placeholder='Enter a Name'
-              onChange={handleInputChange}
-            />
-          </formGroup>
+    <>
+      <form
+        id='addOrganizationForm'
+        autoComplete='off'
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <label htmlFor="organizationName">Name: </label>
+          <input
+            name='organizationName'
+            id='organizationName'
+            value={organization.organizationName}
+            type='text'
+            placeholder='Enter a Name'
+            onChange={handleInputChange}
+          />
+        </div>
 
-          <formGroup>
-            <label htmlFor="icon">ICON: </label>
-            <input
-              name='icon'
-              id='icon'
-              value={organization.icon}
-              type='text'
-              onChange={handleInputChange}
-            />
-          </formGroup>
+        <div>
+          <label htmlFor="icon">ICON: </label>
+          <input
+            name='icon'
+            id='icon'
+            value={organization.icon}
+            type='text'
+            onChange={handleInputChange}
+          />
+        </div>
 
-          <formGroup>
+        <div>
           <button className="orgSubmit" type='submit'>Submit</button>
-          </formGroup>
-
-        </form>
+        </div>
+      </form>
+    </>
   );
 };
 
 OrganizationForm.propTypes = {
-  formTitle: PropTypes.string,
   setOrganizations: PropTypes.func,
   firebaseKey: PropTypes.string,
   icon: PropTypes.string,

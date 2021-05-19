@@ -31,9 +31,9 @@ function Routes({
           />
           <Route exact path='/channels' component={() => <Channels user={user} channels={channels} setChannels={setChannels} />} />
           <Route exact path='/messages' component={() => <MessageList
-          messages={messages}
-          setMessages={setMessages}
-          loggedInUser={loggedInUser}
+            messages={messages}
+            setMessages={setMessages}
+            loggedInUser={loggedInUser}
           />} />
           <Route path='*' component={Home} />
         </Switch>

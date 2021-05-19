@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 import { addMessage, updateMessage } from '../helpers/data/messageData';
 
 function MessageForm({
-  formTitle, setMessages, text, firebaseKey, timeStamp, userFirebaseKey
+  setMessages, text, firebaseKey, timeStamp, userFirebaseKey
 }) {
   const [newMessage, setNewMessage] = useState({
     text: text || '',
@@ -32,15 +32,14 @@ function MessageForm({
   return (
     <div className="message-form">
       <form className='mt-3' id='add-player-form' autoComplete='off' onSubmit={handleSubmit}>
-        <label>{formTitle}</label>
         <input
-        className='ml-2'
-        name='text'
-        type='text'
-        placeholder='message'
-        value={newMessage.value}
-        onChange={handleInputChange} />
-        <br/>
+          className='ml-2'
+          name='text'
+          type='text'
+          placeholder='message'
+          value={newMessage.value}
+          onChange={handleInputChange} />
+        <br />
         <Button color='primary' type='submit'>Submit</Button>
       </form>
     </div>

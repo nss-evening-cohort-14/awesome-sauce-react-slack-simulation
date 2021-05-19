@@ -19,9 +19,9 @@ function ChannelsView({ user, setChannels, channels }) {
       <div>
         {!showAddChannel
           ? <Button className="channelAddBtn" onClick={handleClick}>
-            <img src={plusSign} alt="plus button"/></Button>
+            <img src={plusSign} alt="plus button" /></Button>
           : <div>
-            <Button className="closeForm" onClick={handleClick}><img src={x} alt="x button"/></Button>
+            <Button className="closeForm" onClick={handleClick}><img src={x} alt="x button" /></Button>
             <ChannelForm setChannels={setChannels} user={user} />
           </div>
         }

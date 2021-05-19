@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Button } from 'reactstrap';
 import OrganizationCard from '../components/OrganizationCard';
 import OrganizationForm from '../forms/OrganizationsForm';
-import './vstyles/organizations.scss';
 import plusSign from '../assets/plusSign.png';
 import x from '../assets/x.png';
+import './vstyles/organizations.scss';
 
 function Organizations({
   user, organizations,
@@ -23,9 +23,9 @@ function Organizations({
         <div>
           {!showAddOrganization
             ? <Button className="addOrgBtn" onClick={handleClick}>
-              <img src={plusSign} alt="plus button"/></Button>
+              <img src={plusSign} alt="plus button" /></Button>
             : <div>
-              <Button className="closeForm" onClick={handleClick}><img src={x} alt="x button"/></Button>
+              <Button className="closeForm" onClick={handleClick}><img src={x} alt="x button" /></Button>
               <OrganizationForm
                 setOrganizations={setOrganizations}
                 user={user}
