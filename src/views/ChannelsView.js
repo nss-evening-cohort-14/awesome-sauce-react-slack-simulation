@@ -6,6 +6,7 @@ import ChannelForm from '../forms/ChannelForms';
 import './vstyles/channels.scss';
 import plusSign from '../assets/plusSign.png';
 import x from '../assets/x.png';
+
 function ChannelsView({ user, setChannels, channels }) {
   const [showAddChannel, setAddChannel] = useState(false);
 
